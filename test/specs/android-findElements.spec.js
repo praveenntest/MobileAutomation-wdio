@@ -16,7 +16,7 @@ describe('Android Elements Tests',()=>{
         await expect(className).toHaveText("API Demos")
     })
 
-    it.skip("Find element by xpath", async()=>{
+    it("Find element by xpath", async()=>{
         await $('//android.widget.TextView[@content-desc="Alert Dialogs"]').click()
         await $('//android.widget.Button[@resource-id="io.appium.android.apis:id/select_button"]').click()
         await $('//android.widget.TextView[@text="Command two"]').click()
@@ -26,5 +26,25 @@ describe('Android Elements Tests',()=>{
 
     it('Find element by UiAutomators', async() =>{
         await $('android=new UiSelector().textContains("Alert")').click()
+    })
+
+    it("Working with text input feild", async()=>{
+        const addOption = await $('~Views');
+        await addOption.click();
+
+        const addOptionAuto = await $('~Auto Complete');
+        await addOptionAuto.click();
+
+        await $('//android.widget.TextView[@content-desc="1. Screen Top"]').click()
+
+        const countryInput = await $('android.widget.EditText');
+        await countryInput.waitForDisplayed({ timeout: 5000 });
+        await countryInput.click();
+
+        await countryInput.setValue("India");
+
+        const enteredText = await countryInput.getText();
+        await expect(enteredText).toEqual("India");
+
     })
 })
