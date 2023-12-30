@@ -9,4 +9,10 @@ describe('Android Elements Tests',()=>{
         await expect(actionBar).toBeExisting();
 
     })
+
+    it.only("Find element by class name", async()=>{
+        const className = await $('android.widget.TextView')
+        console.log(await className.getText())
+        await expect(className).toHaveText("API Demos")
+    })
 })
