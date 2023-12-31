@@ -4,7 +4,7 @@ describe('Android Native Feature Tests', ()=>{
         await expect($('//*[@text="App/Alert Dialogs"]')).toExist();
     })
 
-    it.only('Vertical Scrolling', async()=>{
+    it('Vertical Scrolling', async()=>{
         await $('~App').click();
         await $('~Activity').click();
         //Scroll to the end(not stable if element gets moved)
@@ -17,5 +17,15 @@ describe('Android Native Feature Tests', ()=>{
 
         //asseration
         await expect($('~Secure Dialog')).toExist();
+    })
+
+    it.only('Horizontal Scrolling', async()=>{
+        await driver.startActivity("io.appium.android.apis","io.appium.android.apis.view.Gallery1");
+
+        //Horizontal Scrolling
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollForward()')
+
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollBackward()')
+
     })
 })
