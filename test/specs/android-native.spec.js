@@ -3,4 +3,19 @@ describe('Android Native Feature Tests', ()=>{
         await driver.startActivity("io.appium.android.apis","io.appium.android.apis.app.AlertDialogSamples");
         await expect($('//*[@text="App/Alert Dialogs"]')).toExist();
     })
+
+    it.only('Vertical Scrolling', async()=>{
+        await $('~App').click();
+        await $('~Activity').click();
+        //Scroll to the end(not stable if element gets moved)
+        //await $('android=new UiScollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)');
+
+        //ScrollTextIntoView - more stable
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("Secure Surfaces")').click();
+
+        //await $('~Secure Surfaces').click()
+
+        //asseration
+        await expect($('~Secure Dialog')).toExist();
+    })
 })
