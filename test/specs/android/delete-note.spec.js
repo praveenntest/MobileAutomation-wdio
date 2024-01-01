@@ -41,7 +41,5 @@ describe('Delete Note',()=>{
         //asseration to get the text of trash can
         const trashcanitem = await $('//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/title"]').getText()
         await expect(trashcanitem).toEqual(note);
-
-
     })
 })
