@@ -25,7 +25,8 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/android/add-notes-screen*.js'
+        //'./test/specs/**/ios*.js'
+        './test/specs/ios.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,12 +62,18 @@ exports.config = {
         // 'appium:platformVersion': '12.0',
         // 'appium:automationName': 'UiAutomator2'
 
-        'appium:platformName': 'Android',
-        'appium:platformVersion': '11.0',
-        'appium:deviceName':'Pixel 4',
-        'appium:automationName': 'UIAutomator2',
-        'appium:app': path.join(process.cwd(),"./app/android/ColorNote+Notepad.apk"),
-        'appium:autoGrantPermissions':true
+        // 'appium:platformName': 'Android',
+        // 'appium:platformVersion': '11.0',
+        // 'appium:deviceName':'Pixel 4',
+        // 'appium:automationName': 'UIAutomator2',
+        // 'appium:app': path.join(process.cwd(),"./app/android/ColorNote+Notepad.apk"),
+        // 'appium:autoGrantPermissions':true
+
+        'appium:platformName': 'ios',
+        'appium:platformVersion': '17.2',
+        'appium:deviceName':'iPhone 11',
+        'appium:automationName': 'XCUITest',
+        'appium:app': path.join(process.cwd(),"./app/ios/UIKitCatalog2.app")
     }],
 
     //
