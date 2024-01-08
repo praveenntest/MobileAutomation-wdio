@@ -5,4 +5,8 @@ describe('ios Elements Tests',()=>{
         await expect(await driver.getAlertText()).toContain("A Short Title Is Best")
 
     })
+
+    it('find by tag name', async()=>{
+        
+    })
 })
